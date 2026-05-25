@@ -1,10 +1,14 @@
 import axios from 'axios'
 
+// Détection de la variable Render ou repli sur le dossier local /api
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api'
+
 // L'URL de base de l'API Django
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: API_BASE_URL,
   headers: { 'Content-Type': 'application/json' }
 })
+
 
 // Intercepteur : ajoute le token JWT à chaque requête
 api.interceptors.request.use(config => {
@@ -22,7 +26,7 @@ api.interceptors.response.use(
       original._retry = true
       try {
         const refresh = localStorage.getItem('refresh_token')
-        const { data } = await axios.post('/api/auth/refresh/', { refresh })
+       const { data } = await axios.post(`${API_BASE_URL}/auth/refresh/`, { refresh })
         localStorage.setItem('access_token', data.access)
         original.headers.Authorization = `Bearer ${data.access}`
         return api(original)
