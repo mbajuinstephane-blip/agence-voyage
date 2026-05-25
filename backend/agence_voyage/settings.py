@@ -109,7 +109,6 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://localhost:3000',
-    'https://agence-voyage-web.onrender.com' ,
 ]
 CORS_ALLOW_CREDENTIALS = True
 

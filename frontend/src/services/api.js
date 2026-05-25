@@ -1,7 +1,9 @@
 import axios from 'axios'
 
-// Détection de la variable Render ou repli sur le dossier local /api
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api'
+// Ligne 4 : Détection automatique basée sur le nom de domaine de la page
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://127.0.0'                  // Si vous travaillez sur votre PC
+ :'https://agence-voyage-api.onrender.com'; // METTEZ ICI VOTRE URL BACKEND RENDER REELLE
 
 // L'URL de base de l'API Django
 const api = axios.create({
