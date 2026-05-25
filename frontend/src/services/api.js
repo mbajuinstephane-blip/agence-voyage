@@ -1,9 +1,10 @@
 import axios from 'axios'
 
-// Ligne 4 : Détection automatique basée sur le nom de domaine de la page
+// Ligne 4 : Détection automatique et sécurisée de l'adresse de l'API
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://127.0.0'                  // Si vous travaillez sur votre PC
- :'https://agence-voyage-api.onrender.com'; // METTEZ ICI VOTRE URL BACKEND RENDER REELLE
+  ? 'http://127.0.0'
+  : 'https://onrender.com'; // <-- Assurez-vous qu'il y a bien "/api" à la fin
+
 
 // L'URL de base de l'API Django
 const api = axios.create({
