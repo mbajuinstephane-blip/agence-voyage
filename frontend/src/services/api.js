@@ -2,8 +2,8 @@ import axios from 'axios'
 
 // Ligne 4 : Détection automatique et sécurisée de l'adresse de l'API
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://127.0.0'
-  : 'https://agence-voyage-api.onrender.com'; // <-- Assurez-vous qu'il y a bien "/api" à la fin
+  ? 'http://127.0.0.1:8000/api'
+  : 'https://agence-voyage-api.onrender.com/api'; // <-- Assurez-vous qu'il y a bien "/api" à la fin
 
 
 // L'URL de base de l'API Django
